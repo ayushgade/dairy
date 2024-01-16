@@ -1,0 +1,75 @@
+
+
+
+
+
+   body {
+    
+  }
+  .maindiv{
+    /* background-image: url('https://indiastockphoto.com/wp-content/uploads/2023/02/Indian-farmer-grazing-his-cattle-at-sunset-550x367.jpg?v=1680019919');  */
+    /* background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    opacity: 0.9; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; */
+  }
+
+
+
+
+   .container {
+    background-color: #5d93ff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* margin-top: 10vh;  */
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    margin-right: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  div[aria-live="polite"] {
+    color: red;
+    font-weight: bold;
+    margin-top: -10px;
+  }
+  

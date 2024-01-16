@@ -1,0 +1,155 @@
+<div class="signup-container">
+  <div class="signup-form">
+    <h2>Sign Up</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <mat-form-field style="width: 80%">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <div class="example-container">
+        <mat-form-field style="width: 80%">
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            placeholder="pat@example.com"
+            formControlName="email"
+          />
+          <!-- <mat-error *ngIf="signupForm.get('email')?.invalid">{{
+            getErrorMessage()
+          }}</mat-error> -->
+
+          <mat-error
+            *ngIf="
+              signupForm.get('email')?.hasError('email') &&
+              signupForm.get('email')?.touched
+            "
+          >
+            Please enter a valid email address
+          </mat-error>
+          <mat-error
+            *ngIf="
+              signupForm.get('email')?.hasError('required') &&
+              signupForm.get('email')?.touched
+            "
+          >
+            Email is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="example-container">
+        <mat-form-field style="width: 80%">
+          <mat-label>Enter your password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <!-- <mat-error *ngIf="signupForm.hasError('passwordMismatch')">
+            Passwords do not match
+          </mat-error> -->
+          <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
+            Password is required
+          </mat-error>
+          <mat-error
+            *ngIf="signupForm.get('password')?.hasError('minlength')"
+          >
+            Password must be at least 8 characters long
+          </mat-error>
+
+          <mat-error
+            *ngIf="signupForm.get('password')?.hasError('maxlength')"
+          >
+            Password must be at most 12 characters long
+          </mat-error>
+          <mat-error>
+            {{ getPasswordErrorMessage() }}
+          </mat-error>
+          <!-- <div>{{ signupForm.get("password")?.errors | json }}</div> -->
+          <!-- <div>{{ signupForm.get("password")?.valid }}</div> -->
+        </mat-form-field>
+
+        <mat-error
+          *ngIf="
+            signupForm.get('password')!.hasError('required') &&
+            signupForm.get('password')!.touched
+          "
+        >
+          Password is required
+        </mat-error>
+
+        <mat-error
+          *ngIf="
+            signupForm.get('confirmPassword')!.hasError('required') &&
+            signupForm.get('confirmPassword')!.touched
+          "
+        >
+          Confirm Password is required
+        </mat-error>
+        <!-- <mat-error *ngIf="signupForm.get('password')?.invalid">{{
+          getPasswordErrorMessage()
+        }}</mat-error> -->
+      </div>
+
+      <div class="example-container">
+        <mat-form-field style="width: 80%">
+          <mat-label>Enter your Confirm password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="confirmPassword"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error
+            *ngIf="
+              signupForm.get('confirmPassword')?.hasError('required') &&
+              signupForm.get('confirmPassword')?.touched
+            "
+          >
+            Confirm Password is required
+          </mat-error>
+          <mat-error
+            *ngIf="
+              !signupForm.get('confirmPassword')?.hasError('required') &&
+              signupForm.get('password')?.value !==
+                signupForm.get('confirmPassword')?.value
+            "
+          >
+            Passwords do not match
+          </mat-error>
+        </mat-form-field>
+        <!-- <mat-error *ngIf="signupForm.get('confirmPassword')?.invalid">{{
+          getPasswordErrorMessage()
+        }}</mat-error> -->
+      </div>
+      <div>
+        <!-- [disabled]="signupForm.invalid" -->
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </div>
+    </form>
+
+    <div *ngIf="submitted" class="success-message">
+      <p>
+        Signup successful! Welcome, {{ userData.name }} ({{ userData.email }}).
+      </p>
+    </div>
+  </div>
+</div>

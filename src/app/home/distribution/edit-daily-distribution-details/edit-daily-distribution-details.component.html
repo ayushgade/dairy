@@ -1,0 +1,112 @@
+
+<div class="container">
+  <h2>Society Management</h2>
+  <form [formGroup]="CustomerForm" (ngSubmit)="onSubmit()">
+    <!-- <div class="form-group">
+      <label for="id">ID:</label>
+      <input type="text" id="id" formControlName="id" required    [(ngModel)]="prescription.prescriptionNotes"/>
+      <div *ngIf="societyForm.get('id')?.hasError('required') && societyForm.get('id')?.touched">
+        ID is required.
+      </div>
+    </div> -->
+
+    <div class="form-group">
+      <label for="societyId">delivered:</label>
+      <!-- <input type="text" id="societyId" formControlName="delivered" required    [(ngModel)]="update.delivered"/> -->
+      <select id="societyId" formControlName="delivered" required    [(ngModel)]="update.delivered">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      <!-- <div *ngIf="societyForm.get('societyId')?.hasError('required') && societyForm.get('societyId')?.touched">
+        Society ID is required.
+      </div> -->
+    </div>
+
+    <div class="form-group">
+      <label for="societyName">Milk type</label>
+      <select id="societyName" formControlName="milkType" required    [(ngModel)]="update.milkType">
+        <option value="cow">Cow</option>
+        <option value="buffalo">buffalo</option>
+      </select>
+      <!-- <input type="text" id="societyName" formControlName="milkType" required    [(ngModel)]="update.milkType"/> -->
+      <!-- <div *ngIf="societyForm.get('societyName')?.hasError('required') && societyForm.get('societyName')?.touched">
+        Society Name is required.
+      </div> -->
+    </div>
+
+    <div class="form-group">
+      <label for="totalActiveCustomers">quantity:</label>
+      <input type="number" id="totalActiveCustomers" formControlName="quantity" required   [(ngModel)]="update.quantity"/>
+      <!-- <div *ngIf="societyForm.get('totalActiveCustomers')?.hasError('required') && societyForm.get('totalActiveCustomers')?.touched">
+        Active Customers Count is required.
+      </div> -->
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <select id="status" formControlName="status" required [(ngModel)]="update.status">
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="timing">Timing:</label>
+      <select id="timing" formControlName="timing" required [(ngModel)]="update.timing">
+        <option value="Morning">Morning</option>
+        <option value="Evening">Evening</option>
+      </select>
+    </div>
+
+    <button type="submit" mat-raised-button
+    color="primary">Submit</button>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+  <h2>Society Management</h2>
+  <form [formGroup]="CustomerForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="societyId">delivered:</label>
+      <select id="societyId" formControlName="delivered" required    [(ngModel)]="update.delivered">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="societyName">Milk type</label>
+      <select id="societyName" formControlName="milkType" required    [(ngModel)]="update.milkType">
+        <option value="cow">Cow</option>
+        <option value="buffalo">buffalo</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="totalActiveCustomers">quantity:</label>
+      <input type="number" id="totalActiveCustomers" formControlName="quantity" required   [(ngModel)]="update.quantity"/>
+      
+    </div>
+
+    <button type="submit" mat-raised-button
+    color="primary">Submit</button>
+  </form>
+</div> -->
